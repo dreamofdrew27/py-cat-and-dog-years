@@ -40,7 +40,11 @@ from app.main import get_human_age
                      id="should return error when at least one of ages "
                         "is less than 0"),
         pytest.param("15", 15, TypeError,
-                     id="should return error when input is not int type")
+                     id="should return error when input is str type"),
+        pytest.param(10.5, 15, TypeError,
+                     id="should return error when input is float type"),
+        pytest.param(None, 15, TypeError,
+                     id="should return error when input is None")
     ]
 )
 def test_should_convert_cat_and_dog_age_to_human_age(
